@@ -22,3 +22,7 @@ yum install -y iptables-services
 systemctl enable iptables-services
 iptables -I INPUT 1 -p tcp --dport=8443 -j ACCEPT
 service iptables save
+yum install -y iptables-services
+systemctl enable iptables-services
+iptables -I INPUT 1 -p tcp --dport=8443 -j ACCEPT
+service iptables save
