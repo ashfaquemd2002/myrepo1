@@ -38,15 +38,14 @@ while True:
 	if opt_sel == '':
 		print('Please select an option !')
 		continue
-	opt_sel=int(opt_sel)
-	if opt_sel not in range(1,5):
+	if opt_sel not in set(('1','2','3','4')):
 		print(f'Invalid option - {opt_sel}')
 	else:
-		if opt_sel == 1:
+		if opt_sel == '1':
 			add_num()
-		elif opt_sel == 2:
+		elif opt_sel == '2':
 			pass
-		elif opt_sel == 3:
+		elif opt_sel == '3':
 			pass
-		elif opt_sel ==4:
+		elif opt_sel =='4':
 			break
