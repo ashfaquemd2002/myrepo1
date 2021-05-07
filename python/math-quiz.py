@@ -23,6 +23,31 @@ def add_num():
 	calc_time(start_time,end_time)
 
 
+def subtract_num():
+	print('Subtraction of 2 digit nos. (10 questions)')
+	start_time=datetime.now()
+	i=count=0
+	while i<10:
+		i+=1
+		a=random.randint(2,99)
+		b=random.randint(2,99)
+		if a < b:
+			a, b = b, a
+		ans=a-b
+		# print(f'a is {a}, b is {b}, ans is {ans}')
+		print(f'Question No.{i}')
+		res=int(input(f'{a} - {b} = '))
+		if ans == res:
+			print('Correct !!')
+			count+=1
+		else:
+			print('Wrong !!')
+			print(f'Answer is {ans}')
+	end_time=datetime.now()
+	print(f'Result: Correct = {count}, Wrong = {10-count}')
+	calc_time(start_time,end_time)
+
+
 def calc_time(start_time,end_time):
 	diff_time=end_time-start_time
 	h=int(diff_time.seconds/3600)
@@ -40,11 +65,12 @@ while True:
 		continue
 	if opt_sel not in set(('1','2','3','4')):
 		print(f'Invalid option - {opt_sel}')
+		continue
 	else:
 		if opt_sel == '1':
 			add_num()
 		elif opt_sel == '2':
-			pass
+			subtract_num()
 		elif opt_sel == '3':
 			pass
 		elif opt_sel =='4':
