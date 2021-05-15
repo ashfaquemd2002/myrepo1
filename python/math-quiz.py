@@ -1,25 +1,30 @@
 import random
+import re
 from datetime import datetime
 
 def add_num():
 	print('Addition of 2 digit nos. (10 questions)')
 	start_time=datetime.now()
 	i=count=0
-	while i<10:
+	max_ques=10
+	while i<max_ques:
 		i+=1
 		a=random.randint(2,99)
 		b=random.randint(2,99)
 		ans=a+b
 		print(f'Question No.{i}')
-		res=int(input(f'{a} + {b} = '))
-		if ans == res:
-			print('Correct !!')
-			count+=1
+		res=input(f'{a} + {b} = ').strip()
+		if not re.match('^[0-9]+$', res):
+			print('Invalid input')
 		else:
-			print('Wrong !!')
-			print(f'Answer is {ans}')
+			if ans == int(res):
+				print('Correct !!')
+				count+=1
+			else:
+				print('Wrong !!')
+				print(f'Answer is {ans}')
 	end_time=datetime.now()
-	print(f'Result: Correct = {count}, Wrong = {10-count}')
+	print(f'Result: Correct = {count}, Wrong = {max_ques-count}')
 	calc_time(start_time,end_time)
 
 
@@ -27,7 +32,8 @@ def subtract_num():
 	print('Subtraction of 2 digit nos. (10 questions)')
 	start_time=datetime.now()
 	i=count=0
-	while i<10:
+	max_ques=10
+	while i<max_ques:
 		i+=1
 		a=random.randint(2,99)
 		b=random.randint(2,99)
@@ -36,15 +42,44 @@ def subtract_num():
 		ans=a-b
 		# print(f'a is {a}, b is {b}, ans is {ans}')
 		print(f'Question No.{i}')
-		res=int(input(f'{a} - {b} = '))
-		if ans == res:
-			print('Correct !!')
-			count+=1
+		res=input(f'{a} - {b} = ').strip()
+		if not re.match('^[0-9]+$', res):
+			print('Invalid input')
 		else:
-			print('Wrong !!')
-			print(f'Answer is {ans}')
+			if ans == int(res):
+				print('Correct !!')
+				count+=1
+			else:
+				print('Wrong !!')
+				print(f'Answer is {ans}')
 	end_time=datetime.now()
-	print(f'Result: Correct = {count}, Wrong = {10-count}')
+	print(f'Result: Correct = {count}, Wrong = {max_ques-count}')
+	calc_time(start_time,end_time)
+
+
+def multiply_num():
+	print('Subtraction of 2 digit nos. (10 questions)')
+	start_time=datetime.now()
+	i=count=0
+	max_ques=20
+	while i<max_ques:
+		i+=1
+		a=random.randint(2,19)
+		b=random.randint(2,9)
+		ans=a*b
+		print(f'Question No.{i}')
+		res=input(f'{a} * {b} = ').strip()
+		if not re.match('^[0-9]+$', res):
+			print('Invalid input')
+		else:
+			if ans == int(res):
+				print('Correct !!')
+				count+=1
+			else:
+				print('Wrong !!')
+				print(f'Answer is {ans}')
+	end_time=datetime.now()
+	print(f'Result: Correct = {count}, Wrong = {max_ques-count}')
 	calc_time(start_time,end_time)
 
 
@@ -72,6 +107,6 @@ while True:
 		elif opt_sel == '2':
 			subtract_num()
 		elif opt_sel == '3':
-			pass
+			multiply_num()
 		elif opt_sel =='4':
 			break
